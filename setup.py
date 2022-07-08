@@ -5,7 +5,9 @@ setup(
     install_requires=[
         'torch', 
         'torchvision', 
-        'cudatoolset'
+        'cudatoolset',
+        'numpy',
+        'matplotlib'
         ],
     packages=find_packages()
 )

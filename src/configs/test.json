@@ -1,0 +1,30 @@
+{
+    "torch": {
+        "seed": 100,
+        "device": "cpu"
+    },
+
+    "dataset" : {
+        "datadir" : "/home/pantelis/Python/dog_cat/dogs-vs-cats/train2",
+        "augment" : 0,
+        "RandomHorizontalFlip": 0.5,
+        "RandomVerticalFli": 0.5,
+        "RandomRotation": 0,
+        "RandomResizedCrop": 0,
+        "RandomInvert": 0,
+        "RandomVerticalFlip": 0
+    },
+
+    "model": {
+        "type": "cnn",
+        "layers": 3,
+        "activatation": 0,
+        "dropout": 0
+    },
+
+    "training": {
+        "lr": 0.001,
+        "epochs": 10
+    }
+
+}
