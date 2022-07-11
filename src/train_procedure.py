@@ -8,6 +8,8 @@
 import torch
 import numpy as np
 
+import torch.optim as optim
+
 # ---------------------------------------------------------
 
 from .utils import load_configs
@@ -27,7 +29,12 @@ def train(model, dataset, config=None):
     epochs = config['training']['epochs']
     lr = config['training']['lr']
 
-    device = torch.device('gpu' if torch.cuda.is_available() else 'cpu')
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    model = model.cuda()
+
+    # Optimizer and Criterion
+    optimizer = optim.Adam(params=model.parameters(), lr = lr)
+    criterion = torch.nn.CrossEntropyLoss()
 
     # Train the model
     for epoch in np.arange(1, epochs, 1):
@@ -49,4 +56,4 @@ def train(model, dataset, config=None):
             epoch_accuracy += acc/len(dataset)
             epoch_loss += loss/len(dataset)
         
-        print('Epoch : {}, train accuracy : {}, train loss : {}'.format(epoch+1, epoch_accuracy,epoch_loss))
+        print('Epoch : {}, train accuracy : {}, train loss : {}'.format(epoch+1, epoch_accuracy, epoch_loss))

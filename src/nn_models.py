@@ -16,7 +16,7 @@ from .utils import load_configs
 
 # ---------------------------------------------------------
 # Set device for pytorch (CPU or GPU)
-device = torch.device('gpu' if torch.cuda.is_available() else 'cpu')
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 # ---------------------------------------------------------
 class cnnNet(nn.Module):
